@@ -21,8 +21,6 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/post/create', 'PostsController@create')->name('post.create');
-    Route::post('/post/store', 'PostsController@store')->name('post.store');
 
     Route::get('/category/create', 'CategoriesController@create')->name('category.create');
     Route::get('/categories', 'CategoriesController@index')->name('categories');
@@ -31,6 +29,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/category/delete/{id}' , 'CategoriesController@destroy')->name('category.delete');
     Route::post('/category/update/{id}' , 'CategoriesController@update')->name('category.update');
 
+
+    Route::get('/post/create', 'PostsController@create')->name('post.create');
+    Route::post('/post/store', 'PostsController@store')->name('post.store');
+    Route::get('/posts', 'PostsController@index')->name('posts');
+    Route::get('/post/edit/{id}' , 'PostsController@edit')->name('post.edit');
+    Route::get('/post/delete/{id}' , 'PostsController@destroy')->name('post.delete');
+    Route::get('/post/trashed/' , 'PostsController@trashed')->name('post.trashed');
+    Route::get('/post/kill/{id}' , 'PostsController@kill')->name('post.kill');
 
 
 });

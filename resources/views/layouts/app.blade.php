@@ -102,6 +102,16 @@
                                         Create new post
                                 </a>
                             </li>
+                            <li class="list-group-item">
+                                <a href="{{route('posts')}}">
+                                        View All Posts
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('post.trashed')}}">
+                                        View Trashed Posts
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 @endif
