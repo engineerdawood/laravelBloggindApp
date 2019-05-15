@@ -20,6 +20,8 @@ Auth::routes();
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+
+
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/category/create', 'CategoriesController@create')->name('category.create');
@@ -39,6 +41,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get  ('/post/restore/{id}', 'PostsController@restore') ->name('post.restore');
     Route::get  ('/post/edit/{id}',    'PostsController@edit')    ->name('post.edit');
     Route::post ('/post/update/{id}',  'PostsController@update')  ->name('post.update');
+
+
+    Route::get  ('/tags',             'TagsController@index')   ->name('tags');
+    Route::post ('/tag/update/{id}', 'TagsController@update')  ->name('tag.update');
+    Route::get  ('/tag/delete/{id}', 'TagsController@destroy') ->name('tag.delete');
+    Route::get  ('/tag/create',       'TagsController@create')  ->name('tag.create');
+    Route::post ('/tag/store',        'TagsController@store')   ->name('tag.store');
+    Route::get  ('/tag/edit/{id}',   'TagsCon   troller@edit')    ->name('tag.edit');
 
 
 

@@ -5,7 +5,7 @@
 
 <div class="panel panel-info">
     <div class="panel-heading">
-        <div class="panel-title">Create  Post</div>
+        <div class="panel-title">Create  Tag</div>
     </div>
     <hr>
     <div class="panel-body" >
