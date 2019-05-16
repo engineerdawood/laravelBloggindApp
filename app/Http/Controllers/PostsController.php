@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
@@ -37,7 +39,8 @@ class PostsController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.posts.create')->with('categories', Category::all(['id','name']));
+        return view('admin.posts.create')->with('categories', Category::all(['id','name']))
+                                         ->with('tags' , Tag::all());
     }
 
     /**
@@ -48,26 +51,30 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->tags);
 
         $validatedData = $request->validate([
             'title' => 'required',
             'featured' => 'required|image',
             'content' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'tags' => 'required'
         ]);
 
         $featured = $request->featured;
 
         $featuredNewName = time().$featured->getClientOriginalName();
-        $featured->move('uploads/posts' , $featuredNewName);
+        // $featured->move('uploads/posts' , $featuredNewName);
 
-        Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'content' => $request->content,
             'featured' => 'uploads/posts/'.$featuredNewName,
             'category_id' => $request->category_id,
             'slug' => str_slug($request->title)
         ]);
+
+        $post->tags()->attach($request->tags);
 
         Session::flash('success' , 'Post created successfully');
 
@@ -95,7 +102,8 @@ class PostsController extends Controller
     {
         return view('admin.posts.edit' , [
             'post' => Post::find($id),
-            'categories' => Category::all(['id','name'])
+            'categories' => Category::all(['id','name']),
+            'tags' => Tag::all()
         ]);
     }
 
@@ -112,7 +120,8 @@ class PostsController extends Controller
             'title' => 'required',
             'featured' => 'image',
             'content' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'tags' => 'required'
         ]);
 
         $post = Post::find($id);
@@ -133,6 +142,8 @@ class PostsController extends Controller
         $post->slug = str_slug($request->title);
 
         $post->update();
+
+        $post->tags()->sync($request->tags);
 
         Session::flash('info' , 'Post has been updated');
 
