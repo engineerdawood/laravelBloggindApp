@@ -122,6 +122,16 @@
                                         Create Tag
                                 </a>
                             </li>
+                            <li class="list-group-item">
+                                <a href="{{route('users')}}">
+                                        Users
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('user.create')}}">
+                                        Create User
+                                </a>
+                            </li>
 
                         </ul>
                     </div>

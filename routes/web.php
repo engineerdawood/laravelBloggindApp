@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/test', function () {
+    return App\Profile::find(1)->user;
+});
+
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -48,8 +52,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get  ('/tag/delete/{id}', 'TagsController@destroy') ->name('tag.delete');
     Route::get  ('/tag/create',       'TagsController@create')  ->name('tag.create');
     Route::post ('/tag/store',        'TagsController@store')   ->name('tag.store');
-    Route::get  ('/tag/edit/{id}',   'TagsCon   troller@edit')    ->name('tag.edit');
+    Route::get  ('/tag/edit/{id}',   'TagsController@edit')    ->name('tag.edit');
 
+    Route::get('/users', 'UsersController@index')->name('users');
+    Route::get('/user/create' , 'UsersController@create')->name('user.create');
+    Route::post('/user/store' , 'UsersController@store')->name('user.store');
+    Route::get('/user/make-user/{id}' , 'UsersController@make_user')->name('user.make.user');
+    Route::get('/user/make-admin/{id}', 'UsersController@make_admin')->name('user.make.admin');
 
 
 });

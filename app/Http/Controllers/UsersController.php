@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
-use Session;
-use App\Category;
+use App\User;
 use Illuminate\Http\Request;
+use App\Profile;
+use Session;
 
-class CategoriesController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,20 +16,19 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index', [
-            'categories' => Category::all()
+        return view('admin.users.index',[
+            'users' => User::all()
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
-     * 
-     *~
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -40,19 +39,28 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'name' => 'required'
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
-        $category = new Category;
-        // dd($category);
-        $category->name = $request->name;
-        $category->save();
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
 
-        Session::flash('primary' , 'You successfully created a category');
+        Profile::create([
+            'user_id' => $user->id,
+            'avatar' => 'uploads/avatars/1.png'
+        ]);
 
-        return redirect(route('categories'));
+
+
+        Session::flash('success' , 'User created successfully');
+
+        return redirect()->route('users');
     }
 
     /**
@@ -74,8 +82,7 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('admin.categories.edit')->with('category' , $category);
+        //
     }
 
     /**
@@ -87,16 +94,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required'
-        ]);
-        $category = Category::find($id);
-        $category->name = $request->name;
-        $category->update();
-
-        Session::flash('info' , 'You successfully updated a category');
-
-        return redirect(route('categories'));
+        //
     }
 
     /**
@@ -105,12 +103,23 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $id)
+    public function destroy($id)
     {
-        $id->delete();
-        Session::flash('danger' , 'You successfully deleted a category');
+        //
+    }
 
+    public function make_user($id){
+        $user = User::find($id);
+        $user->admin = 0;
+        $user->update();
 
-        return redirect(route('categories'));
+        return redirect()->back();
+    }
+    public function make_admin($id){~
+        $user = User::find($id);
+        $user->admin = 1;
+        $user->update();
+
+        return redirect()->back();
     }
 }

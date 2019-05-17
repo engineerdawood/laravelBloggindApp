@@ -133,7 +133,6 @@ class PostsController extends Controller
             $featured->move('uploads/posts' , $featuredNewName);
 
             $post->featured = 'uploads/posts/'.$featuredNewName;
-
         }
 
         $post->title = $request->title;
