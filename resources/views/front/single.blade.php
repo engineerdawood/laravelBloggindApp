@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Seosight - Blog Details</title>
 
-    <link rel="stylesheet" type="text/css" href="app/css/fonts.css">
-    <link rel="stylesheet" type="text/css" href="app/css/crumina-fonts.css">
-    <link rel="stylesheet" type="text/css" href="app/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="app/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="app/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/crumina-fonts.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/grid.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/styles.css">
 
 
     <!--Plugins styles-->
 
-    <link rel="stylesheet" type="text/css" href="app/css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="app/css/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="app/css/primary-menu.css">
-    <link rel="stylesheet" type="text/css" href="app/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/primary-menu.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/magnific-popup.css">
 
     <!--Styles for RTL-->
 
-    <!--<link rel="stylesheet" type="text/css" href="app/css/rtl.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="/app/css/rtl.css">-->
 
     <!--External fonts-->
 
@@ -47,7 +47,7 @@
                 <div class="header-content-wrapper">
                     <div class="logo">
                         <div class="logo-text">
-                            <div class="logo-title">LARAVEL'S BLOG</div>
+                            <div class="logo-title">LARAVEL BLOG</div>
                         </div>
                     </div>
 
@@ -114,7 +114,7 @@
                 <article class="hentry post post-standard-details">
 
                     <div class="post-thumb">
-                        <img src="app/img/6.jpg" alt="seo">
+                        <img src="/app/img/6.jpg" alt="seo">
                     </div>
 
                     <div class="post__content">
@@ -259,7 +259,7 @@
                 <div class="blog-details-author">
 
                     <div class="blog-details-author-thumb">
-                        <img src="app/img/blog-details-author.png" alt="Author">
+                        <img src="/app/img/blog-details-author.png" alt="Author">
                     </div>
 
                     <div class="blog-details-author-content">
@@ -273,19 +273,19 @@
                         <div class="socials">
 
                             <a href="#" class="social__item">
-                                <img src="app/svg/circle-facebook.svg" alt="facebook">
+                                <img src="/app/svg/circle-facebook.svg" alt="facebook">
                             </a>
 
                             <a href="#" class="social__item">
-                                <img src="app/svg/twitter.svg" alt="twitter">
+                                <img src="/app/svg/twitter.svg" alt="twitter">
                             </a>
 
                             <a href="#" class="social__item">
-                                <img src="app/svg/google.svg" alt="google">
+                                <img src="/app/svg/google.svg" alt="google">
                             </a>
 
                             <a href="#" class="social__item">
-                                <img src="app/svg/youtube.svg" alt="youtube">
+                                <img src="/app/svg/youtube.svg" alt="youtube">
                             </a>
 
                         </div>
@@ -296,7 +296,7 @@
 
                     <a href="#" class="btn-prev-wrap">
                         <svg class="btn-prev">
-                            <use xlink:href="#arrow-left"></use>
+                            {{--  <use xlink:href="#arrow-left"></use>  --}}
                         </svg>
                         <div class="btn-content">
                             <div class="btn-content-title">Next Post</div>
@@ -310,7 +310,7 @@
                             <p class="btn-content-subtitle">Duis Autem Velius</p>
                         </div>
                         <svg class="btn-next">
-                            <use xlink:href="#arrow-right"></use>
+                            {{--  <use xlink:href="#arrow-right"></use>  --}}
                         </svg>
                     </a>
 
@@ -393,9 +393,9 @@
                     </div>
 
                     <div class="images-block">
-                        <img src="img/subscr-gear.png" alt="gear" class="gear">
-                        <img src="img/subscr1.png" alt="mail" class="mail">
-                        <img src="img/subscr-mailopen.png" alt="mail" class="mail-2">
+                        <img src="/app/img/subscr-gear.png" alt="gear" class="gear">
+                        <img src="/app/img/subscr1.png" alt="mail" class="mail">
+                        <img src="/app/img/subscr-mailopen.png" alt="mail" class="mail-2">
                     </div>
                 </div>
             </div>
@@ -516,16 +516,16 @@
 
 <!-- JS Script -->
 
-<script src="app/js/jquery-2.1.4.min.js"></script>
-<script src="app/js/crum-mega-menu.js"></script>
-<script src="app/js/swiper.jquery.min.js"></script>
-<script src="app/js/theme-plugins.js"></script>
-<script src="app/js/main.js"></script>
-<script src="app/js/form-actions.js"></script>
+<script src="/app/js/jquery-2.1.4.min.js"></script>
+<script src="/app/js/crum-mega-menu.js"></script>
+<script src="/app/js/swiper.jquery.min.js"></script>
+<script src="/app/js/theme-plugins.js"></script>
+<script src="/app/js/main.js"></script>
+<script src="/app/js/form-actions.js"></script>
 
-<script src="app/js/velocity.min.js"></script>
-<script src="app/js/ScrollMagic.min.js"></script>
-<script src="app/js/animation.velocity.min.js"></script>
+<script src="/app/js/velocity.min.js"></script>
+<script src="/app/js/ScrollMagic.min.js"></script>
+<script src="/app/js/animation.velocity.min.js"></script>
 
 <!-- ...end JS Script -->
 
