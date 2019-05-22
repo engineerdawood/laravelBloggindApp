@@ -25,7 +25,6 @@ Route::get('/test', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/category/create', 'CategoriesController@create')->name('category.create');
@@ -59,6 +58,27 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('/user/store' , 'UsersController@store')->name('user.store');
     Route::get('/user/make-user/{id}' , 'UsersController@make_user')->name('user.make.user');
     Route::get('/user/make-admin/{id}', 'UsersController@make_admin')->name('user.make.admin');
+    // Route::get('/user/edit', 'UsersController@edit')->name('user.edit');
+
+    Route::get('/profile/show' , 'ProfilesController@show')->name('profile.show');
+    Route::get('/profile/edit' , 'ProfilesController@edit')->name('profile.edit');
+    Route::post('/profile/update', 'ProfilesController@update')->name('profile.update');
+
+    Route::get('/setting/edit' , 'SettingsController@edit')->name('setting.edit');
+    Route::post('/setting/update' , 'SettingsController@update')->name('setting.store');
 
 
+});
+
+
+Route::get('/front/category', function () {
+    return view('front.category');
+});
+
+Route::get('/front/home', function () {
+    return view('front.home');
+});
+
+Route::get('/front/single', function () {
+    return view('front.single');
 });

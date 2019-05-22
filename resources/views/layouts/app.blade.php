@@ -122,16 +122,28 @@
                                         Create Tag
                                 </a>
                             </li>
-                            <li class="list-group-item">
-                                <a href="{{route('users')}}">
+                            @if (Auth::user()->admin)
+                                <li class="list-group-item">
+                                    <a href="{{route('users')}}">
                                         Users
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="{{route('user.create')}}">
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('user.create')}}">
                                         Create User
-                                </a>
-                            </li>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('profile.show')}}">
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('setting.edit')}}">
+                                        Site Settings
+                                    </a>
+                                </li>
+                            @endif
 
                         </ul>
                     </div>

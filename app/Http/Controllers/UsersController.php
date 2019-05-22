@@ -9,6 +9,9 @@ use Session;
 
 class UsersController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +51,7 @@ class UsersController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
         ]);
 
         Profile::create([
@@ -115,7 +118,7 @@ class UsersController extends Controller
 
         return redirect()->back();
     }
-    public function make_admin($id){~
+    public function make_admin($id){
         $user = User::find($id);
         $user->admin = 1;
         $user->update();
