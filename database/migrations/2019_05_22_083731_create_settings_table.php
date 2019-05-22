@@ -7,6 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateSettingsTable extends Migration
 {
     /**
+     * Testing Front branch
      * Run the migrations.
      *
      * @return void
