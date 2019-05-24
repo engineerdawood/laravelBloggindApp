@@ -71,12 +71,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 });
 
 
+Route::get('/front/home', 'Blog\HomeController@index');
+
 Route::get('/front/category', function () {
     return view('front.category');
-});
-
-Route::get('/front/home', function () {
-    return view('front.home');
 });
 
 Route::get('/front/single', function () {
